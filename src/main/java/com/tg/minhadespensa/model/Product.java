@@ -7,17 +7,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "CATEGORY")
+@Table(name = "PRODUCT")
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "ID")
+    private Integer subCategory;
     @Column
     private String name;
-
 }
